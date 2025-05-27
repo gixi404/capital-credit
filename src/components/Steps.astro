@@ -1,5 +1,4 @@
 ---
-import Section from "./Section.astro";
 import Step1Icon from "../assets/svg/step1.svg";
 import Step2Icon from "../assets/svg/step2.svg";
 import Step3Icon from "../assets/svg/step3.svg";
@@ -7,7 +6,7 @@ import Step4Icon from "../assets/svg/step4.svg";
 import ActionBtn from "./ActionBtn.astro";
 ---
 
-<Section id="pasos" styles="bg-[#101828]">
+<section id="pasos" class="py-[6rem] sm:py-[8rem] bg-[#101828]">
   <div
     class="container mx-auto px-4 text-[#228b87] flex flex-col items-center justify-center"
   >
@@ -17,7 +16,7 @@ import ActionBtn from "./ActionBtn.astro";
       >
         ¿Cómo funciona el proceso?
       </h2>
-      <p class="text-lg text-gray-300/95 w-full text-center">
+      <p class="text-lg text-gray-300/95 w-full text-center px-4 sm:px-0">
         En solo 4 pasos, podés acceder a tu ayuda financiera personalizada
       </p>
     </div>
@@ -119,8 +118,8 @@ import ActionBtn from "./ActionBtn.astro";
       </li>
     </ol>
 
-    <div class="w-ful flex justify-center items-center mt-18">
+    <div class="w-ful flex justify-center items-center mt-14 sm:mt-18">
       <ActionBtn />
     </div>
   </div>
-</Section>
+</section>

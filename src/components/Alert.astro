@@ -1,0 +1,44 @@
+---
+import CheckIcon from "../assets/svg/check.svg";
+const visible: boolean = Astro.url.searchParams.get("s") == "ok";
+---
+
+{
+  visible && (
+    <div
+      role="alert"
+      onclick="closePopup(event)"
+      class="fixed inset-0 bg-gray-900/75 flex items-center justify-center z-50"
+    >
+      <div
+        onclick="event.stopPropagation()"
+        class="bg-white border-2 border-green-100 rounded-xl shadow-xl p-8 max-w-lg w-full flex flex-col justify-center items-center text-center gap-y-3"
+      >
+        <CheckIcon />
+        <p class="text-2xl text-black font-semibold text-center w-full text-balance">
+          ¡Gracias por Contactarnos!
+        </p>
+        <p class="text-gray-800 text-lg text-pretty w-full">
+          Nos comunicaremos con vos en la brevedad
+        </p>
+        <button
+          type="button"
+          onclick="closePopup(event)"
+          class="z-10 text-lg border-[1.5px] hover:opacity-80 transition-opacity cursor-pointer border-green-600 text-green-950 tracking-wide mt-4 px-8 py-2 rounded-lg bg-green-200"
+        >
+          Aceptar
+        </button>
+      </div>
+    </div>
+  )
+}
+
+<script is:inline>
+  function closePopup(event) {
+    event.preventDefault();
+    document.querySelector('[role="alert"]').remove();
+    const url = new URL(window.location.href);
+    url.searchParams.delete("s");
+    history.replaceState({}, document.title, url.pathname + url.search);
+  }
+</script>
