@@ -1,0 +1,54 @@
+---
+import "../styles/global.css";
+import "@fontsource/poppins";
+import { ClientRouter } from "astro:transitions";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import WhatsAppBtn from "../components/WhatsAppBtn.astro";
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="description" content="Tu solución rápida y segura" />
+    <meta
+      property="og:url"
+      content="https://c173f308-e60b-4dd0-b533-62b33cce9b19.vercel.app"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="CAPITAL CREDIT" />
+    <meta property="og:description" content="Tu solución rápida y segura" />
+    <!-- <meta
+      property="og:image"
+      content="https://opengraph.b-cdn.net/production/images/ffde4dad-6bb2-4816-a50e-f4c5f5e54560.jpg?token=ocvWoyhvQTIG-MD21o3kDUvPGCPnzT37_QGEioOgIek&height=280&width=1100&expires=33284013642"
+    /> -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:domain"
+      content="https://c173f308-e60b-4dd0-b533-62b33cce9b19.vercel.app/"
+    />
+    <meta
+      property="twitter:url"
+      content="https://c173f308-e60b-4dd0-b533-62b33cce9b19.vercel.app"
+    />
+    <meta name="twitter:title" content="CAPITAL CREDIT" />
+    <meta name="twitter:description" content="Tu solución rápida y segura" />
+    <!-- <meta
+      name="twitter:image"
+      content="https://opengraph.b-cdn.net/production/images/ffde4dad-6bb2-4816-a50e-f4c5f5e54560.jpg?token=ocvWoyhvQTIG-MD21o3kDUvPGCPnzT37_QGEioOgIek&height=280&width=1100&expires=33284013642"
+    /> -->
+    <ClientRouter />
+    <meta name="google" content="notranslate" />
+    <meta name="generator" content={Astro.generator} />
+    <title>CAPITAL CREDIT</title>
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+    <WhatsAppBtn />
+  </body>
+</html>

@@ -1,0 +1,10 @@
+   <svg
+            class="size-10 absolute top-8.5 opacity-90 right-1 z-10"
+            viewBox="0 0 20 20"
+            fill="#ffffff"
+          >
+            <path
+              fill="#ffffff"
+              d="M 4.7929688 7 L 10 12.207031 L 15.207031 7 L 4.7929688 7 z M 7.2070312 8 L 12.792969 8 L 10 10.792969 L 7.2070312 8 z "
+              style="fill:#ffffff97db; stroke:none; stroke-width:0px;"></path>
+          </svg>
