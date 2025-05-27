@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://c173f308-e60b-4dd0-b533-62b33cce9b19.vercel.app/sitemap-index.xml
+Sitemap: https://c173f308-e60b.vercel.app/sitemap-index.xml

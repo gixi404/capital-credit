@@ -5,6 +5,7 @@ import { ClientRouter } from "astro:transitions";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import WhatsAppBtn from "../components/WhatsAppBtn.astro";
+import { DOMAIN } from "../utils/const";
 ---
 
 <!doctype html>
@@ -14,10 +15,7 @@ import WhatsAppBtn from "../components/WhatsAppBtn.astro";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="description" content="Tu solución rápida y segura" />
-    <meta
-      property="og:url"
-      content="https://c173f308-e60b-4dd0-b533-62b33cce9b19.vercel.app"
-    />
+    <meta property="og:url" content={DOMAIN} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="CAPITAL CREDIT" />
     <meta property="og:description" content="Tu solución rápida y segura" />
@@ -26,14 +24,8 @@ import WhatsAppBtn from "../components/WhatsAppBtn.astro";
       content="https://opengraph.b-cdn.net/production/images/ffde4dad-6bb2-4816-a50e-f4c5f5e54560.jpg?token=ocvWoyhvQTIG-MD21o3kDUvPGCPnzT37_QGEioOgIek&height=280&width=1100&expires=33284013642"
     /> -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      property="twitter:domain"
-      content="https://c173f308-e60b-4dd0-b533-62b33cce9b19.vercel.app/"
-    />
-    <meta
-      property="twitter:url"
-      content="https://c173f308-e60b-4dd0-b533-62b33cce9b19.vercel.app"
-    />
+    <meta property="twitter:domain" content={DOMAIN} />
+    <meta property="twitter:url" content={DOMAIN} />
     <meta name="twitter:title" content="CAPITAL CREDIT" />
     <meta name="twitter:description" content="Tu solución rápida y segura" />
     <!-- <meta
