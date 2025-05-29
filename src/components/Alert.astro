@@ -8,11 +8,11 @@ const visible: boolean = Astro.url.searchParams.get("s") == "ok";
     <div
       role="alert"
       onclick="closePopup(event)"
-      class="fixed inset-0 bg-gray-900/90 flex items-center justify-center z-50"
+      class="fixed inset-0 bg-gray-900/90 flex items-start sm:items-center justify-center pt-24 sm:pt-0 z-50"
     >
       <div
         onclick="event.stopPropagation()"
-        class="text-white bg-gradient-to-tr from-[#00552d] to-[#00335d] rounded-3xl p-8 max-w-md w-full text-center relative gap-y-4 flex flex-col justify-start items-center"
+        class="text-white bg-gradient-to-tr from-[#00552d] to-[#00335d] rounded-xl sm:rounded-3xl p-8 max-w-md w-full text-center relative gap-y-4 flex flex-col justify-start items-center mx-2 sm:mx-0"
       >
         <div class="flex justify-center items-center">
           <CheckIcon />
