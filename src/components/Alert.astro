@@ -8,25 +8,34 @@ const visible: boolean = Astro.url.searchParams.get("s") == "ok";
     <div
       role="alert"
       onclick="closePopup(event)"
-      class="fixed inset-0 bg-gray-900/75 flex items-center justify-center z-50"
+      class="fixed inset-0 bg-gray-900/90 flex items-center justify-center z-50"
     >
       <div
         onclick="event.stopPropagation()"
-        class="bg-white border-2 border-green-100 rounded-xl shadow-xl p-8 max-w-lg w-full flex flex-col justify-center items-center text-center gap-y-3"
+        class="text-white bg-gradient-to-tr from-[#00552d] to-[#00335d] rounded-3xl p-8 max-w-md w-full text-center relative gap-y-4 flex flex-col justify-start items-center"
       >
-        <CheckIcon />
-        <p class="text-2xl text-black font-semibold text-center w-full text-balance">
-          ¡Gracias por Contactarnos!
-        </p>
-        <p class="text-gray-800 text-lg text-pretty w-full">
-          Nos comunicaremos con vos en la brevedad
-        </p>
+        <div class="flex justify-center items-center">
+          <CheckIcon />
+        </div>
+
+        <h3 class="text-2xl font-semibold w-full text-center text-balance">
+          ¡Gracias por registrarte!
+        </h3>
+
+        <h4 class="text-lg w-full text-center text-pretty">
+          En breve, uno de nuestros asesores se pondrá en contacto con vos
+        </h4>
+
+        <h5 class="text-gray-300 text-sm w-full text-center text-pretty max-w-xs">
+          Vamos a analizar tu perfil para brindarte una atención personalizada
+        </h5>
+
         <button
           type="button"
           onclick="closePopup(event)"
-          class="z-10 text-lg border-[1.5px] hover:opacity-80 transition-opacity cursor-pointer border-green-600 text-green-950 tracking-wide mt-4 px-8 py-2 rounded-lg bg-green-200"
+          class="mt-4 cursor-pointer bg-green-600 hover:bg-green-500 text-white font-semibold py-2.5 px-10 rounded-md duration-75 border border-green-700 text-lg"
         >
-          Aceptar
+          Volver al inicio
         </button>
       </div>
     </div>

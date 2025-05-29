@@ -7,38 +7,35 @@ import { DOMAIN } from "../../utils/const";
 const resend: Resend = new Resend(import.meta.env.RESEND_API_KEY);
 
 export const POST: APIRoute = async req => {
-  const formData: FormData = await req.request.formData(),
+  const form: FormData = await req.request.formData(),
     user: UserData = {
-      dni: formData.get("dni") as string,
-      email: formData.get("email") as string,
-      phone: formData.get("phone") as string,
-      condition: formData.get("condition") as string,
+      dni: form.get("dni") as FormDataEntryValue,
+      phone: form.get("phone") as FormDataEntryValue,
+      email: (form.get("email") || "No especificado") as FormDataEntryValue,
+      condition: form.get("condition") as FormDataEntryValue,
     },
     { data, error }: CreateEmailResponse = await resend.emails.send({
       from: "CAPITAL CREDIT <info@gixi.dev>",
       to: "gixi.tsx@gmail.com",
       subject: "Nueva solicitud",
-      html: templateHTML(user.dni, user.email, user.phone, user.condition),
+      html: templateHTML(user.dni, user.phone, user.email, user.condition),
       text: `Nueva solicitud:
       DNI: ${user.dni},
-      EMAIL: ${user.email},
       CELULAR: ${user.phone},
+      EMAIL: ${user.email},
       CONDICIÓN LABORAL: ${user.condition}
       `,
     });
 
   if (error) {
-    console.error(`${user.phone} : ${error.message}`);
-    return Response.redirect(`${DOMAIN}/?s=${error.name}`, 301);
+    console.error(error.message);
+    return Response.redirect(`${DOMAIN}/?s=${error.name}`, 303);
   }
 
-  console.log(`${user.phone} : ${data?.id}`);
-  return Response.redirect(`${DOMAIN}/?s=ok`, 301);
+  console.log(data?.id);
+  return Response.redirect(`${DOMAIN}/?s=ok`, 303);
 };
 
 interface UserData {
-  dni: string;
-  email: string;
-  phone: string;
-  condition: string;
+  [key: string]: FormDataEntryValue;
 }

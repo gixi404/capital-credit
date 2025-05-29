@@ -1,7 +1,0 @@
-<svg width="40" height="40" viewBox="0 0 104 104" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="52" cy="52" r="50" fill="#ffffff" />
-  <circle cx="52" cy="52" r="47" stroke="#6A994E" stroke-width="6" fill="none" />
-  <text x="52" y="52" text-anchor="middle" dominant-baseline="central" font-size="70" fill="#386641" font-family="Arial, sans-serif">
-    $
-  </text>
-</svg>

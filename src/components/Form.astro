@@ -1,7 +1,7 @@
 ---
 import { WHATSAPP_URL } from "../utils/const";
 import WhatsAppIcon from "../assets/svg/whatsapp.svg";
-import ArrowBackIcon from "../assets/svg/arrow-back.svg";
+import ArrowBottomIcon from "../assets/svg/arrow-bottom.svg";
 ---
 
 <section id="formulario" class="py-[6rem] sm:py-[8rem] bg-gray-800">
@@ -13,7 +13,7 @@ import ArrowBackIcon from "../assets/svg/arrow-back.svg";
         Formulario
       </h2>
       <div
-        class="flex flex-col text-lg px-4 sm:px-0 items-center justify-center gap-y-2 text-gray-300/95 w-full"
+        class="flex flex-col text-lg px-4 sm:px-0 items-center justify-center gap-y-2 text-gray-300 w-full"
       >
         <p class="text-center flex flex-col sm:flex-row">
           ¿Es tu primera vez con nosotros?
@@ -24,7 +24,6 @@ import ArrowBackIcon from "../assets/svg/arrow-back.svg";
           class="flex flex-col sm:flex-row text-center sm:text-start justify-start items-center"
         >
           ¿Ya sos cliente y querés renovar?
-
           <span class="flex gap-x-2">
             &nbsp;Hacé clic acá:
             <a
@@ -43,13 +42,15 @@ import ArrowBackIcon from "../assets/svg/arrow-back.svg";
       class="w-full max-w-lg bg-[#101828] border-2 border-gray-600/40 rounded-lg shadow-md p-6"
     >
       <form
-        id="form-main"
-        class="flex flex-col"
         method="post"
+        id="form-main"
+        name="form-main"
+        spellcheck="false"
         action="/api/submit"
+        class="flex flex-col"
         enctype="multipart/form-data"
       >
-        <label for="dni" class="flex flex-col gap-y-1 text-gray-100">
+        <label for="dni" class="label-style">
           DNI
           <input
             required
@@ -57,54 +58,50 @@ import ArrowBackIcon from "../assets/svg/arrow-back.svg";
             id="dni"
             name="dni"
             placeholder="12.345.678"
-            class="bg-[#202733] border border-[#2d3646] cursor-pointer outline-0 text-white rounded-md p-2.5 mb-4 focus:bg-gray-700 focus:outline-none focus:ring-1 focus:ring-[#f3efe7] transition ease-in-out duration-150 w-full"
+            class="input-style"
+            minlength="7"
+            maxlength="10"
           />
         </label>
-        <label for="email" class="flex flex-col gap-y-1 text-gray-100">
-          Email
+        <label for="phone" class="label-style">
+          Celular
+          <input
+            required
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="5491176294118"
+            class="input-style"
+            minlength="7"
+            maxlength="22"
+          />
+        </label>
+        <label for="email" class="label-style">
+          <p>
+            Email&nbsp;<span class="text-xs text-gray-400"
+              >&#40;opcional&#41;</span
+            >
+          </p>
           <input
             id="email"
             type="email"
             name="email"
             inputmode="email"
-            minlength={5}
-            maxlength={254}
+            minlength="5"
+            maxlength="254"
             placeholder="ejemplo@gmail.com"
             autocapitalize="off"
-            spellcheck={false}
             autocorrect="off"
             autocomplete="on"
-            required
-            class="bg-[#202733] border border-[#2d3646] cursor-pointer outline-0 text-white rounded-md p-2.5 mb-4 focus:bg-gray-700 focus:outline-none focus:ring-1 focus:ring-[#f3efe7] transition ease-in-out duration-150 w-full"
+            class="input-style"
           />
         </label>
-        <label for="phone" class="flex flex-col gap-y-1 text-gray-100">
-          Celular
-          <input
-            required
-            type="number"
-            id="phone"
-            name="phone"
-            placeholder="+5491176294118"
-            class="bg-[#202733] border border-[#2d3646] cursor-pointer outline-0 text-white rounded-md p-2.5 mb-4 focus:bg-gray-700 focus:outline-none focus:ring-1 focus:ring-[#f3efe7] transition ease-in-out duration-150 w-full"
-            type="text"
-          />
-        </label>
-        <label
-          for="condition"
-          class="mb-1 relative text-gray-200 cursor-pointer"
-        >
+        <label for="condition" class="label-style mb-1 relative text-gray-200">
           Condición laboral
-          <ArrowBackIcon />
+          <ArrowBottomIcon />
         </label>
-
-        <select
-          class="bg-[#202733] border border-[#2d3646] cursor-pointer outline-0 text-white rounded-md p-2.5 mb-4 focus:bg-gray-700 focus:outline-none focus:ring-1 focus:ring-[#f3efe7] transition ease-in-out duration-150 w-full"
-          required
-          id="condition"
-          name="condition"
-        >
-          <option disabled selected value="default"
+        <select required id="condition" name="condition" class="input-style">
+          <option disabled selected value="no-selected"
             >Seleccioná una opción</option
           >
           <option value="Trabajo informal (sin recibo)"
@@ -120,9 +117,9 @@ import ArrowBackIcon from "../assets/svg/arrow-back.svg";
           >
         </select>
         <button
-          class="bg-gradient-to-b border-b-3 border-green-300/10 from-green-500 to-green-600 text-white font-bold py-2 rounded-md mt-4 hover:brightness-110 transition-colors cursor-pointer text-xl sm:text-2xl tracking-wide"
-          type="submit"
           id="form-btn"
+          type="submit"
+          class="bg-gradient-to-b border-b-3 border-l-3 border-l-green-700 border-b-green-600 from-green-500 to-green-700 text-white font-bold py-2 rounded-md mt-4 hover:brightness-110 duration-75 cursor-pointer text-xl sm:text-2xl tracking-wide"
         >
           Enviar
         </button>
@@ -132,37 +129,66 @@ import ArrowBackIcon from "../assets/svg/arrow-back.svg";
 </section>
 
 <script>
-  window?.document?.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("form-main") as HTMLFormElement;
-    const btn = document.getElementById("form-btn") as HTMLButtonElement;
+  window?.document?.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("form-main") as HTMLFormElement,
+      btn = document.getElementById("form-btn") as HTMLButtonElement,
+      dniInput = document.getElementById("dni") as HTMLInputElement,
+      phoneInput = document.getElementById("phone") as HTMLInputElement,
+      regex: Regex = {
+        dni: new RegExp(/^(\d{1,3}([. ]\d{3}){2}|\d{7,8})$/),
+        email: new RegExp(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i),
+        phone: new RegExp(/^\+?\d{7,22}$/),
+      };
+
+    interface Regex {
+      [key: string]: RegExp;
+    }
+
+    dniInput.addEventListener("input", (e: Event) => {
+      const input = e.target as HTMLInputElement;
+      let value: string = input.value.replace(/[^0-9.\s]/g, "");
+      input.value = value;
+    });
+
+    phoneInput.addEventListener("input", (e: Event) => {
+      const input = e.target as HTMLInputElement;
+      let value: string = input.value.replace(/[^0-9\s+]/g, "");
+      input.value = value;
+    });
 
     form.addEventListener("submit", (e: Event) => {
       e.preventDefault();
 
-      const dni: string = form.dni.value.trim(),
-        email: string = form.email.value.trim(),
-        phone: string = form.phone.value.trim(),
+      const dni: string = form.dni.value.toString().trim(),
+        email: string = form.email.value.toString().trim(),
+        phone: string = form.phone.value.toString().trim(),
         condition: string = form.condition.value,
         errors: string[] = [];
 
-      if (false) {
-        errors.push("DNI inválido (7 u 8 dígitos)");
+      if (!regex.dni.test(dni)) {
+        errors.push(
+          "> El DNI ingresado es inválido. Ejemplo válido: 12.345.678"
+        );
       }
 
-      if (false) {
-        errors.push("Email inválido");
+      if (email.length > 0 && !regex.email.test(email)) {
+        errors.push(
+          "> El email ingresado es inválido. Ejemplo válido: ejemplo@gmail.com"
+        );
       }
 
-      if (false) {
-        errors.push("Celular inválido (entre 10 y 15 dígitos)");
+      if (!regex.phone.test(phone)) {
+        errors.push(
+          "> El celular ingresado es inválido. Ejemplo válido: 5491176294118"
+        );
       }
 
-      if (condition == "default") {
-        errors.push("Seleccioná una condición laboral de la lista");
+      if (condition == "no-selected") {
+        errors.push("> Debes seleccionar una condición laboral");
       }
 
       if (errors.length > 0) {
-        window?.alert(errors.join("\n"));
+        window?.alert(errors.join("\n\n"));
         btn.disabled = false;
         btn.innerText = "Enviar";
         btn.style.pointerEvents = "auto";
