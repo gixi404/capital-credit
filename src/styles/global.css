@@ -15,7 +15,7 @@ select option {
 }
 
 .input-style {
-  @apply text-sm sm:text-[15.5px] bg-[#282d38] border border-[#3c4657] outline-0 text-white rounded-md p-3 focus:bg-gray-700 focus:outline-none focus:ring-1 focus:ring-[#f3efe7e8] hover:border-[#f3efe7e8] transition ease-in-out w-full;
+  @apply text-sm sm:text-[15.5px] bg-[#282d38] border border-[#3c4657] outline-0 text-white rounded-md p-3 focus:bg-gray-700 focus:outline-none focus:ring-1 focus:ring-[#f3efe7e8] hover:border-[#f3efe7e8] transition ease-in-out w-full disabled:hover:border-[#3c4657];
 }
 
 .label-style {

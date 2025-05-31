@@ -2,7 +2,7 @@
 import { WHATSAPP_URL } from "../utils/const";
 import WhatsAppIcon from "../assets/svg/whatsapp.svg";
 import ArrowBottomIcon from "../assets/svg/arrow-bottom.svg";
-import { employSelectArr, incomesSelectArr } from "../utils/const";
+import { EMPLOY_SELECT, INCOMES_SELECT } from "../utils/const";
 ---
 
 <section id="formulario" class="py-[6rem] sm:py-[8rem] bg-gray-800">
@@ -32,6 +32,7 @@ import { employSelectArr, incomesSelectArr } from "../utils/const";
               target="_blank"
               href={`${WHATSAPP_URL}?text=Hola CAPITAL CREDIT, solicito una renovación...`}
               class="opacity-90 hover:brightness-125 transition-opacity"
+              aria-label="Contactar por WhatsApp"
             >
               <WhatsAppIcon class="size-6" />
             </a>
@@ -81,11 +82,7 @@ import { employSelectArr, incomesSelectArr } from "../utils/const";
           <span id="phone-err" class="text-red-400 text-sm hidden"></span>
         </label>
         <label for="email" class="label-style">
-          <p>
-            Email&nbsp;<span class="text-xs text-gray-400"
-              >&#40;opcional&#41;</span
-            >
-          </p>
+          Email
           <input
             id="email"
             type="email"
@@ -113,10 +110,10 @@ import { employSelectArr, incomesSelectArr } from "../utils/const";
             class="input-style"
           >
             {
-              employSelectArr.map((val: string) => (
+              EMPLOY_SELECT.map((val: string) => (
                 <option
-                  selected={val == employSelectArr[0]}
-                  disabled={val == employSelectArr[0]}
+                  selected={val == EMPLOY_SELECT[0]}
+                  disabled={val == EMPLOY_SELECT[0]}
                   value={val}
                 >
                   {val}
@@ -144,10 +141,10 @@ import { employSelectArr, incomesSelectArr } from "../utils/const";
               class="input-style"
             >
               {
-                incomesSelectArr.map((val: string) => (
+                INCOMES_SELECT.map((val: string) => (
                   <option
-                    disabled={val == incomesSelectArr[0]}
-                    selected={val == incomesSelectArr[0]}
+                    disabled={val == INCOMES_SELECT[0]}
+                    selected={val == INCOMES_SELECT[0]}
                     value={val}
                   >
                     {val}

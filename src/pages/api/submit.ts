@@ -11,7 +11,7 @@ export const POST: APIRoute = async ({ request }) => {
   const form: FormData = await request.formData(),
     dni = form.get("dni") as string,
     phone = form.get("phone") as string,
-    email = (form.get("email") as string) || "No especificado",
+    email = form.get("email") as string,
     employ = form.get("employSelect") as string,
     income = (form.get("incomeSelect") as string) || "No aplica",
     { data, error }: CreateEmailResponse = await resend.emails.send({
@@ -29,7 +29,7 @@ export const POST: APIRoute = async ({ request }) => {
     });
 
   if (error) {
-    console.error("Error enviando email:", error);
+    console.error("Email error:", error);
     return Response.redirect(`${DOMAIN}/?s=err`, 303);
   }
 

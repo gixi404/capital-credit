@@ -3,7 +3,7 @@ const DOMAIN: string = "https://c173f308-e60b.vercel.app";
 
 const WHATSAPP_URL: string = "https://wa.me/+5491176294118";
 
-const employSelectArr: string[] = [
+const EMPLOY_SELECT: string[] = [
   "Seleccioná una opción",
   "Trabajo informal (sin recibo)",
   "Trabajo en relación de dependencia (con recibo)",
@@ -12,7 +12,7 @@ const employSelectArr: string[] = [
   "Emprendedor/a o trabajador independiente",
 ];
 
-const incomesSelectArr: string[] = [
+const INCOMES_SELECT: string[] = [
   "Seleccioná una opción",
   "$200.000 a $399.999",
   "$400.000 a $599.999",
@@ -22,4 +22,4 @@ const incomesSelectArr: string[] = [
   "$1.200.000 a $10.000.000",
 ];
 
-export { WHATSAPP_URL, DOMAIN, employSelectArr, incomesSelectArr };
+export { WHATSAPP_URL, DOMAIN, EMPLOY_SELECT, INCOMES_SELECT };

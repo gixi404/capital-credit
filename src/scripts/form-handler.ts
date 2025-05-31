@@ -1,4 +1,4 @@
-import { incomesSelectArr, employSelectArr } from "../utils/const";
+import { INCOMES_SELECT, EMPLOY_SELECT } from "../utils/const";
 
 export function initForm(): void {
   const mainForm = document.getElementById("mainForm") as HTMLFormElement,
@@ -16,7 +16,7 @@ export function initForm(): void {
         msg: "El DNI debe tener formato válido (ej: 12.345.678)",
       },
       phone: {
-        regex: /^\+?\d{7,22}$/,
+        regex: /^\+?[\d\s]{7,22}$/,
         msg: "El celular debe tener formato válido (ej: 5491176294118)",
       },
       email: {
@@ -24,11 +24,11 @@ export function initForm(): void {
         msg: "El email debe tener formato válido (ej: ejemplo@gmail.com)",
       },
       employSelect: {
-        regex: new RegExp(`^(?!${employSelectArr[0]}$).*$`),
+        regex: new RegExp(`^(?!${EMPLOY_SELECT[0]}$).*$`),
         msg: "Debes seleccionar una condición laboral",
       },
       incomeSelect: {
-        regex: new RegExp(`^(?!${incomesSelectArr[0]}$).*$`),
+        regex: new RegExp(`^(?!${INCOMES_SELECT[0]}$).*$`),
         msg: "Debes seleccionar tu ingreso mensual",
       },
     };
@@ -54,10 +54,9 @@ export function initForm(): void {
   }
 
   function validateField(id: string, val: string): boolean {
-    const validation: any = inputValidations[id];
+    const validation: Input = inputValidations[id];
 
     if (!validation) return true;
-    if (id == "email" && !val) return true;
 
     const isValid: boolean = validation.regex.test(val);
 
@@ -72,15 +71,15 @@ export function initForm(): void {
 
   function handleEmployChange(): void {
     if (
-      employSelect.value == employSelectArr.find(i => i.includes("con recibo"))
+      employSelect.value == EMPLOY_SELECT.find(i => i.includes("con recibo"))
     ) {
       incomeSection.classList.remove("hidden");
       incomeSelect.required = true;
-      incomeSelect.value = incomesSelectArr[0];
+      incomeSelect.value = INCOMES_SELECT[0];
     } else {
       incomeSection.classList.add("hidden");
       incomeSelect.required = false;
-      incomeSelect.value = incomesSelectArr[0];
+      incomeSelect.value = INCOMES_SELECT[0];
     }
   }
 
@@ -138,8 +137,10 @@ export function initForm(): void {
 type FormInputs = NodeListOf<HTMLInputElement | HTMLSelectElement>;
 
 interface InputValidations {
-  [key: string]: {
-    regex: RegExp;
-    msg: string;
-  };
+  [key: string]: Input;
+}
+
+interface Input {
+  regex: RegExp;
+  msg: string;
 }
