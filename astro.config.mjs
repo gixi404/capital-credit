@@ -10,4 +10,5 @@ export default defineConfig({
   site: DOMAIN,
   output: "server",
   adapter: vercel(),
+  prefetch: true,
 });

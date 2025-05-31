@@ -1,7 +1,6 @@
 ---
 import "../styles/global.css";
 import "@fontsource/poppins";
-import { ClientRouter } from "astro:transitions";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import WhatsAppBtn from "../components/WhatsAppBtn.astro";
@@ -11,6 +10,7 @@ import { DOMAIN } from "../utils/const";
 <!doctype html>
 <html lang="es">
   <head>
+    <meta charset="UTF-8" />
     <meta
       name="description"
       content="Obtené la ayuda financiera que necesitás "
@@ -40,12 +40,9 @@ import { DOMAIN } from "../utils/const";
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="canonical" href={DOMAIN} />
-    <ClientRouter />
-    <meta name="google" content="notranslate" />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Capital Credit" />
     <meta name="generator" content={Astro.generator} />
-    <meta charset="UTF-8" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <title>CAPITAL CREDIT</title>
   </head>
