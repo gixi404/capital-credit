@@ -16,7 +16,7 @@ import { employSelectArr, incomesSelectArr } from "../utils/const";
       <div
         class="flex flex-col text-lg px-4 sm:px-0 items-center justify-center gap-y-2 text-gray-300 w-full"
       >
-        <p class="text-center flex flex-col sm:flex-row">
+        <p class="text-center flex flex-col lg:flex-row">
           ¿Es tu primera vez con nosotros?
           <span>&nbsp;Completá el formulario para que analicemos tu perfil</span
           >
@@ -124,7 +124,9 @@ import { employSelectArr, incomesSelectArr } from "../utils/const";
               ))
             }
           </select>
-          <ArrowBottomIcon />
+          <ArrowBottomIcon
+            class="backdrop-blur-xs sm:backdrop-blur-none rounded-full size-9 absolute top-9.5 opacity-85 right-2 pointer-events-none"
+          />
           <span id="employSelect-err" class="text-red-400 text-sm hidden">
           </span>
         </label>
@@ -132,9 +134,9 @@ import { employSelectArr, incomesSelectArr } from "../utils/const";
         <div id="incomeSection" class="hidden">
           <label
             for="incomeSelect"
-            class="label-style mb-1 relative text-gray-200"
+            class="label-style !text-sm sm:!text-lg mb-1 relative text-gray-200"
           >
-            ¿Cuál es tu ingreso mensual en mano?
+            Indica tu ingreso mensual en mano
             <select
               required
               id="incomeSelect"
@@ -153,7 +155,9 @@ import { employSelectArr, incomesSelectArr } from "../utils/const";
                 ))
               }
             </select>
-            <ArrowBottomIcon />
+            <ArrowBottomIcon
+              class="backdrop-blur-xs sm:backdrop-blur-none rounded-full size-9 absolute top-7.5 sm:top-9.5 opacity-85 right-2 pointer-events-none"
+            />
             <span id="incomeSelect-err" class="text-red-400 text-sm hidden">
             </span>
           </label>
