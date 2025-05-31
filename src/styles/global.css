@@ -38,9 +38,9 @@ input[type="number"] {
 }
 
 .input-style {
-  @apply text-[15.5px] bg-[#282d38] border border-[#3c4657] outline-0 text-white rounded-md p-3 mb-4 focus:bg-gray-700 focus:outline-none focus:ring-1 focus:ring-[#f3efe7e8] hover:border-[#f3efe7e8] transition ease-in-out w-full;
+  @apply text-[15.5px] bg-[#282d38] border border-[#3c4657] outline-0 text-white rounded-md p-3 focus:bg-gray-700 focus:outline-none focus:ring-1 focus:ring-[#f3efe7e8] hover:border-[#f3efe7e8] transition ease-in-out w-full;
 }
 
 .label-style {
-  @apply flex flex-col gap-y-1 text-lg tracking-wide text-gray-100;
+  @apply flex flex-col gap-y-1 text-lg tracking-wide text-gray-100 mb-4;
 }

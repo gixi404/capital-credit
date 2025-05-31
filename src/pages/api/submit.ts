@@ -7,47 +7,32 @@ import { DOMAIN } from "../../utils/const";
 const { RESEND_API_KEY, ADMIN_EMAIL }: ImportMetaEnv = import.meta.env;
 const resend: Resend = new Resend(RESEND_API_KEY);
 
-export const POST: APIRoute = async req => {
-  const form: FormData = await req.request.formData();
-
-  const dni = form.get("dni") as string | null;
-  const phone = form.get("phone") as string | null;
-  const email = (form.get("email") as string) || "No especificado";
-  const condition = form.get("condition") as string | null;
-
-  if (!dni || !phone || !condition) {
-    return Response.redirect(`${DOMAIN}/?s=missing_fields`, 303);
-  }
-
-  const user: UserData = { dni, phone, email, condition };
-
-  try {
-    const { data, error }: CreateEmailResponse = await resend.emails.send({
+export const POST: APIRoute = async ({ request }) => {
+  const form: FormData = await request.formData(),
+    dni = form.get("dni") as string,
+    phone = form.get("phone") as string,
+    email = (form.get("email") as string) || "No especificado",
+    employ = form.get("employSelect") as string,
+    income = (form.get("incomeSelect") as string) || "No aplica",
+    { data, error }: CreateEmailResponse = await resend.emails.send({
       from: "CAPITAL CREDIT <info@gixi.dev>",
-      to: ADMIN_EMAIL,
+      to: String(ADMIN_EMAIL),
       subject: "Nueva solicitud",
-      html: templateHTML(user.dni, user.phone, user.email, user.condition),
+      html: templateHTML({ dni, phone, email, employ, income }),
       text: `Nueva solicitud:
-      DNI: ${user.dni},
-      CELULAR: ${user.phone},
-      EMAIL: ${user.email},
-      CONDICIÓN LABORAL: ${user.condition}
+      DNI: ${dni},
+      CELULAR: ${phone},
+      EMAIL: ${email},
+      CONDICIÓN LABORAL: ${employ},
+      INGRESO MENSUAL: ${income}
       `,
     });
 
-    if (error) {
-      console.error("Error al enviar email:", error);
-      return Response.redirect(`${DOMAIN}/?s=email_error`, 303);
-    }
-
-    console.log("Email enviado, ID:", data?.id);
-    return Response.redirect(`${DOMAIN}/?s=ok`, 303);
-  } catch (err) {
-    console.error("Error inesperado:", err);
-    return Response.redirect(`${DOMAIN}/?s=server_error`, 303);
+  if (error) {
+    console.error("Error enviando email:", error);
+    return Response.redirect(`${DOMAIN}/?s=err`, 303);
   }
-};
 
-interface UserData {
-  [key: string]: FormDataEntryValue;
-}
+  console.log("ID:", data?.id);
+  return Response.redirect(`${DOMAIN}/?s=ok`, 303);
+};

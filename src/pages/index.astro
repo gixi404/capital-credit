@@ -4,13 +4,15 @@ import Main from "../components/Main.astro";
 import Steps from "../components/Steps.astro";
 import Form from "../components/Form.astro";
 import Testimonials from "../components/Testimonials.astro";
-import Alert from "../components/Alert.astro";
+import EmailSentAlert from "../components/EmailSentAlert.astro";
+import EmailErrorAlert from "../components/EmailErrorAlert.astro";
 ---
 
 <Layout>
-  <Alert />
   <Main />
   <Steps />
   <Form />
   <Testimonials />
+  <EmailSentAlert />
+  <EmailErrorAlert />
 </Layout>

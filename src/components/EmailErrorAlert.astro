@@ -1,0 +1,35 @@
+---
+import FailedIcon from "../assets/svg/failed.svg";
+const visible: boolean = Astro.url.searchParams.get("s") == "err";
+---
+
+{
+  visible && (
+    <div
+      role="alert"
+      class="fixed inset-0 bg-gray-900/90 flex items-start sm:items-center justify-center pt-24 sm:pt-0 z-50"
+    >
+      <div class="text-white bg-gradient-to-tr from-[#8a2020] to-[#783737] rounded-xl sm:rounded-3xl p-8 max-w-md w-full text-center relative gap-y-4 flex flex-col justify-start items-center mx-2 sm:mx-0">
+        <div class="flex justify-center items-center">
+          <FailedIcon />
+        </div>
+
+        <h3 class="text-2xl font-semibold w-full text-center text-balance">
+          Ocurrió un error
+        </h3>
+
+        <h4 class="text-lg w-full text-center text-pretty">
+          Tu email no se pudo enviar. Intenta nuevamente o contactanos por
+          WhatsApp
+        </h4>
+
+        <a
+          href="/#formulario"
+          class="mt-4 cursor-pointer bg-green-600 hover:bg-green-500 text-white font-semibold py-2.5 px-10 rounded-md duration-75 border border-green-700 text-lg"
+        >
+          Reintentar
+        </a>
+      </div>
+    </div>
+  )
+}
