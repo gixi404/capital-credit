@@ -8,8 +8,16 @@ const { RESEND_API_KEY, ADMIN_EMAIL }: ImportMetaEnv = import.meta.env;
 const resend: Resend = new Resend(RESEND_API_KEY);
 
 export const POST: APIRoute = async ({ request }) => {
-  const form: FormData = await request.formData(),
-    dni = form.get("dni") as string,
+  const form: FormData = await request.formData();
+  const honeypot: Honeypot = form.get("provincia");
+
+  if (honeypot) {
+    await new Promise(resolve => setTimeout(resolve, 5000));
+    console.warn("Honeypot detectado, solicitud ignorada");
+    return Response.redirect(`${DOMAIN}/?s=err`, 303);
+  }
+
+  const dni = form.get("dni") as string,
     phone = form.get("phone") as string,
     email = form.get("email") as string,
     employ = form.get("employSelect") as string,
@@ -36,3 +44,5 @@ export const POST: APIRoute = async ({ request }) => {
   console.log("ID:", data?.id);
   return Response.redirect(`${DOMAIN}/?s=ok`, 303);
 };
+
+type Honeypot = FormDataEntryValue | null;
