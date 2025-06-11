@@ -1,0 +1,28 @@
+{
+  "name": "capital-credit",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "license": "Personal",
+  "description": "Landing page para CAPITAL CREDIT",
+  "author": {
+    "name": "Lym Software",
+    "url": "https://lym.software",
+    "email": "info@lym.software"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.4.0",
+    "@astrojs/vercel": "^8.1.4",
+    "@fontsource/poppins": "^5.2.6",
+    "@tailwindcss/vite": "^4.1.7",
+    "astro": "^5.8.0",
+    "resend": "^4.5.1",
+    "tailwindcss": "^4.1.7"
+  }
+}

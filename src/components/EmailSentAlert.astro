@@ -1,0 +1,53 @@
+---
+import CheckIcon from "../assets/svg/check.svg";
+const visible: boolean = Astro.url.searchParams.get("s") == "ok";
+---
+
+{
+  visible && (
+    <div
+      role="alert"
+      onclick="closePopup(event)"
+      class="fixed inset-0 bg-gray-900/90 flex items-start sm:items-center justify-center pt-24 sm:pt-0 z-50"
+    >
+      <div
+        onclick="event.stopPropagation()"
+        class="text-white bg-gradient-to-tr from-[#00552d] to-[#00335d] rounded-xl sm:rounded-3xl p-8 max-w-md w-full text-center relative gap-y-4 flex flex-col justify-start items-center mx-2 sm:mx-0"
+      >
+        <div class="flex justify-center items-center">
+          <CheckIcon />
+        </div>
+
+        <h3 class="text-2xl font-semibold w-full text-center text-balance">
+          ¡Gracias por registrarte!
+        </h3>
+
+        <h4 class="text-lg w-full text-center text-pretty">
+          En breve, uno de nuestros asesores se pondrá en contacto con vos
+        </h4>
+
+        <h5 class="text-gray-300 text-sm w-full text-center text-pretty max-w-xs">
+          Vamos a analizar tu perfil para brindarte una atención personalizada
+        </h5>
+
+        <button
+          type="button"
+          onclick="closePopup(event)"
+          class="mt-4 cursor-pointer bg-green-600 hover:bg-green-500 text-white font-semibold py-2.5 px-10 rounded-md duration-75 border border-green-700 text-lg"
+        >
+          Volver al inicio
+        </button>
+      </div>
+    </div>
+  )
+}
+
+<script is:inline>
+  function closePopup(event) {
+    event.preventDefault();
+    document.querySelector('[role="alert"]').remove();
+    const url = new URL(window.location.href);
+    url.searchParams.delete("s");
+    history.replaceState({}, document.title, url.pathname + url.search);
+  }
+</script>

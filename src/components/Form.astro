@@ -1,0 +1,195 @@
+---
+import { WHATSAPP_URL } from "../utils/const";
+import WhatsAppIcon from "../assets/svg/whatsapp.svg";
+import ArrowBottomIcon from "../assets/svg/arrow-bottom.svg";
+import { EMPLOY_SELECT, INCOMES_SELECT } from "../utils/const";
+---
+
+<section id="formulario" class="py-[6rem] sm:py-[8rem] bg-gray-800">
+  <div
+    class="container mx-auto max-w-[1000px] flex justify-center items-center flex-col px-4"
+  >
+    <div class="mb-10 w-full flex flex-col justify-center items-center gap-y-8">
+      <h2 class="text-center w-full text-5xl font-bold text-gray-100">
+        Formulario
+      </h2>
+      <div
+        class="flex flex-col text-lg px-4 sm:px-0 items-center justify-center gap-y-2 text-gray-300 w-full"
+      >
+        <p class="text-center flex flex-col lg:flex-row">
+          ¿Es tu primera vez con nosotros?
+          <span>&nbsp;Completá el formulario para que analicemos tu perfil</span
+          >
+        </p>
+        <p
+          class="flex flex-col sm:flex-row text-center sm:text-start justify-start items-center"
+        >
+          ¿Ya sos cliente y querés renovar?
+          <span class="flex gap-x-2">
+            &nbsp;Hacé clic acá:
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href={`${WHATSAPP_URL}?text=Hola CAPITAL CREDIT, solicito una renovación...`}
+              class="opacity-90 hover:brightness-125 transition-opacity"
+              aria-label="Contactar por WhatsApp"
+            >
+              <WhatsAppIcon class="size-6" />
+            </a>
+          </span>
+        </p>
+      </div>
+    </div>
+    <div
+      class="w-full max-w-lg bg-[#101828] border-2 border-gray-600/40 rounded-lg shadow-md p-6"
+    >
+      <form
+        method="post"
+        id="mainForm"
+        name="mainForm"
+        spellcheck="false"
+        action="/api/submit"
+        class="flex flex-col"
+        enctype="multipart/form-data"
+        aria-label="Formulario de contacto"
+      >
+        <label for="dni" class="label-style">
+          DNI
+          <input
+            required
+            type="text"
+            id="dni"
+            name="dni"
+            placeholder="12.345.678"
+            class="input-style"
+            minlength="7"
+            maxlength="10"
+          />
+          <span id="dni-err" class="text-red-400 text-sm hidden"></span>
+        </label>
+        <label for="phone" class="label-style">
+          Celular
+          <input
+            required
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="5491176294118"
+            class="input-style"
+            minlength="7"
+            maxlength="22"
+          />
+          <span id="phone-err" class="text-red-400 text-sm hidden"></span>
+        </label>
+        <label for="email" class="label-style">
+          Email
+          <input
+            id="email"
+            type="email"
+            name="email"
+            inputmode="email"
+            minlength="5"
+            maxlength="254"
+            placeholder="ejemplo@gmail.com"
+            autocapitalize="off"
+            autocorrect="off"
+            autocomplete="on"
+            class="input-style"
+          />
+          <span id="email-err" class="text-red-400 text-sm hidden"></span>
+        </label>
+        <label class="hidden">
+          Provincia
+          <input
+            type="text"
+            name="provincia"
+            id="provincia"
+            autocomplete="off"
+            tabindex="-1"
+          />
+        </label>
+        <label
+          for="employSelect"
+          class="label-style mb-1 relative text-gray-200"
+        >
+          Condición laboral
+          <select
+            required
+            id="employSelect"
+            name="employSelect"
+            class="input-style"
+          >
+            {
+              EMPLOY_SELECT.map((val: string) => (
+                <option
+                  selected={val == EMPLOY_SELECT[0]}
+                  disabled={val == EMPLOY_SELECT[0]}
+                  value={val}
+                >
+                  {val}
+                </option>
+              ))
+            }
+          </select>
+          <ArrowBottomIcon
+            class="backdrop-blur-xs sm:backdrop-blur-none rounded-full size-9 absolute top-9.5 opacity-85 right-2 pointer-events-none"
+          />
+          <span id="employSelect-err" class="text-red-400 text-sm hidden">
+          </span>
+        </label>
+
+        <div id="incomeSection" class="hidden">
+          <label
+            for="incomeSelect"
+            class="label-style !text-sm sm:!text-lg mb-1 relative text-gray-200"
+          >
+            Indica tu ingreso mensual en mano
+            <select
+              required
+              id="incomeSelect"
+              name="incomeSelect"
+              class="input-style"
+            >
+              {
+                INCOMES_SELECT.map((val: string) => (
+                  <option
+                    disabled={val == INCOMES_SELECT[0]}
+                    selected={val == INCOMES_SELECT[0]}
+                    value={val}
+                  >
+                    {val}
+                  </option>
+                ))
+              }
+            </select>
+            <ArrowBottomIcon
+              class="backdrop-blur-xs sm:backdrop-blur-none rounded-full size-9 absolute top-7.5 sm:top-9.5 opacity-85 right-2 pointer-events-none"
+            />
+            <span id="incomeSelect-err" class="text-red-400 text-sm hidden">
+            </span>
+          </label>
+        </div>
+
+        <button
+          id="submitBtn"
+          type="submit"
+          class="bg-gradient-to-b border-b-3 border-l-3 border-l-green-700 border-b-green-600 from-green-500 to-green-700 h-12 rounded-md mt-4 hover:brightness-110 duration-75 cursor-pointer flex items-center justify-center gap-2 text-xl sm:text-2xl"
+        >
+          <span id="btnText" class="text-white tracking-wide font-bold"
+            >Enviar</span
+          >
+          <span
+            id="loadSpinner"
+            class="hidden size-7 text-transparent border-[3.5px] border-white border-t-transparent rounded-full animate-spin"
+            >.</span
+          >
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { initForm } from "../scripts/form-handler";
+  window?.document?.addEventListener("DOMContentLoaded", initForm);
+</script>

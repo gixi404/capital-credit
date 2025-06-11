@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+html,
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  @apply w-full h-full bg-[#101828] scroll-smooth p-0 m-0;
+}
+
+select:invalid {
+  @apply text-[#aaa];
+}
+
+select option {
+  @apply bg-[#1e2633] text-white text-sm md:text-lg;
+}
+
+.input-style {
+  @apply text-sm sm:text-[15.5px] bg-[#282d38] border border-[#3c4657] outline-0 text-white rounded-md p-3 focus:bg-gray-700 focus:outline-none focus:ring-1 focus:ring-[#f3efe7e8] hover:border-[#f3efe7e8] transition ease-in-out w-full disabled:hover:border-[#3c4657];
+}
+
+.label-style {
+  @apply flex flex-col gap-y-1 text-lg tracking-wide text-gray-100 mb-5;
+}
+
+select option:checked {
+  @apply bg-white text-black;
+}
+
+select::-webkit-select-value {
+  @apply bg-white text-black;
+}
+
+input,
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield;
+}

@@ -1,0 +1,35 @@
+---
+import mockup from "../assets/img/mockup.webp";
+import ActionBtn from "./ActionBtn.astro";
+---
+
+<section
+  id="inicio"
+  class="pt-[2rem] sm:pt-[6rem] pb-[2rem] bg-gradient-to-tr from-[#006838] to-[#003865] w-full h-full flex items-center justify-center"
+>
+  <div
+    class="w-full max-w-[800px] flex flex-col sm:flex-row justify-center lg:justify-between items-center"
+  >
+    <div
+      class="text-white w-full max-w-lg flex flex-col lg:justify-start lg:items-start items-center justify-center gap-y-6 sm:gap-y-4 mb-10 mt-22 sm:mt-0 sm:mb-0"
+    >
+      <h1
+        class="text-4xl sm:text-5xl text-center lg:text-start font-bold w-full my-2 leading-tight"
+      >
+        Obtené la ayuda financiera que necesitás
+      </h1>
+      <p
+        class="text-xl text-center lg:text-start text-pretty w-full max-w-md px-4: sm:px-0"
+      >
+        Te acompañamos en cada paso con soluciones seguras y personalizadas
+      </p>
+      <ActionBtn />
+    </div>
+    <img
+      src={mockup.src}
+      alt="mockup"
+      class="hidden lg:block w-[250px] h-full brightness-110"
+      decoding="async"
+    />
+  </div>
+</section>

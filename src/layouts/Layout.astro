@@ -1,0 +1,55 @@
+---
+import "../styles/global.css";
+import "@fontsource/poppins";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import WhatsAppBtn from "../components/WhatsAppBtn.astro";
+import { DOMAIN_URL } from "../utils/const";
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Obtené la ayuda financiera que necesitás "
+    />
+    <meta property="og:url" content={DOMAIN_URL} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="CAPITAL CREDIT" />
+    <meta
+      property="og:description"
+      content="Obtené la ayuda financiera que necesitás "
+    />
+    <meta
+      property="og:image"
+      content="https://opengraph.b-cdn.net/production/images/61626814-568c-4793-b897-1cd65cd463e3.jpg?token=6oQTWXeXOPgbjnygp3MtJFW8rslv3-2e0WXP96aYeOw&height=253&width=635&expires=33284612212"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="c173f308-e60b.vercel.app" />
+    <meta property="twitter:url" content={DOMAIN_URL} />
+    <meta name="twitter:title" content="CAPITAL CREDIT" />
+    <meta
+      name="twitter:description"
+      content="Obtené la ayuda financiera que necesitás "
+    />
+    <meta
+      name="twitter:image"
+      content="https://opengraph.b-cdn.net/production/images/61626814-568c-4793-b897-1cd65cd463e3.jpg?token=6oQTWXeXOPgbjnygp3MtJFW8rslv3-2e0WXP96aYeOw&height=253&width=635&expires=33284612212"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="canonical" href={DOMAIN_URL} />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Capital Credit" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <title>CAPITAL CREDIT</title>
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+    <WhatsAppBtn />
+  </body>
+</html>

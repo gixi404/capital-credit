@@ -1,0 +1,110 @@
+---
+import LastUpdated from "../components/LastUpdated.astro";
+import Layout from "../layouts/Layout.astro";
+import GoToHome from "../components/GoToHome.astro";
+import { WHATSAPP } from "../utils/const";
+import { DOMAIN } from "../utils/const";
+const ADMIN_EMAIL = String(import.meta.env.ADMIN_EMAIL);
+---
+
+<Layout>
+  <section
+    class="bg-gray-200 w-full flex justify-center items-center pt-36 pb-24 flex-col gap-y-2"
+  >
+    <div
+      class="w-full h-full flex flex-col justify-start items-start gap-y-4 max-w-2xl px-6 sm:px-0 [&>p>b]:flex [&>p>b]:flex-col"
+    >
+      <h3 class="text-4xl font-bold tracking-tighter mb-2 w-full text-start">
+        Política de Privacidad
+      </h3>
+      <LastUpdated date="09/06/2025" />
+      <p>
+        En CAPITAL CREDIT (en adelante, “nosotros” o “la Empresa”), valoramos y
+        respetamos la privacidad de nuestros usuarios. Esta Política de
+        Privacidad describe cómo recopilamos, utilizamos, protegemos y, en
+        ciertas circunstancias, compartimos la información personal que nos
+        proporcionas a través de nuestro sitio web {DOMAIN}. Al utilizar nuestro
+        sitio web y completar nuestro formulario, aceptas las prácticas
+        descritas en esta política.
+      </p>
+      <p>
+        <b>1. Información que recopilamos</b> Cuando completas el formulario en nuestro
+        sitio web, recopilamos la siguiente información personal: número de documento
+        nacional de identidad (DNI), número de celular, dirección de correo electrónico
+        y condición laboral e ingreso mensual (si aplica).
+      </p>
+      <p>
+        <b>2. Finalidad de la recopilación de datos</b> La información personal que
+        recopilamos se utiliza exclusivamente para los siguientes propósitos: para
+        comunicarnos contigo en relación con tu solicitud de crédito personal, responder
+        a tus consultas o brindarte información sobre nuestros productos y servicios.
+        Para consultar tu historial crediticio y de deudas en las bases de datos
+        correspondientes (por ejemplo, Veraz, BCRA u otros organismos similares)
+        y para evaluar tu capacidad de pago basándonos en tu condición laboral y
+        tus ingresos. Esta consulta y evaluación son pasos fundamentales en nuestro
+        proceso de análisis crediticio.
+      </p>
+      <p>
+        <b>3. Cómo utilizamos tu información</b> Tu información se utiliza internamente
+        para los fines antes mencionados. No vendemos, alquilamos ni comercializamos
+        tu información personal a terceros para fines de marketing.
+      </p>
+      <p>
+        <b>4. Compartir información</b>
+        Para los fines de evaluación crediticia, podemos compartir tu información
+        personal (específicamente tu DNI y, si fuera necesario, otros datos para
+        corroborar tu información) con entidades que proveen información sobre el
+        historial de deudas y comportamiento crediticio, como Veraz, el Banco Central
+        de la República Argentina (BCRA) u otras agencias de informes crediticios.
+        Compartimos tu información solo en la medida necesaria para cumplir con los
+        propósitos descritos en esta política. En ningún otro caso, salvo expresa
+        obligación legal o requerimiento judicial, compartiremos tus datos personales
+        con terceros sin tu consentimiento previo.
+      </p>
+      <p>
+        <b>5. Protección de tu información</b>
+        Implementamos medidas de seguridad técnicas y organizativas adecuadas para
+        proteger tu información personal contra el acceso no autorizado, la alteración,
+        divulgación o destrucción. Estas medidas incluyen: uso de cifrado (SSL/TLS)
+        para la transmisión de datos a través de nuestro sitio web; acceso restringido
+        a la información personal solo para el personal autorizado que necesita conocerla
+        para realizar su trabajo; almacenamiento seguro de los datos. A pesar de
+        nuestros esfuerzos, ninguna transmisión de datos por internet o sistema de
+        almacenamiento electrónico puede garantizar una seguridad del 100%.
+      </p>
+      <p>
+        <b>6. Tus derechos como titular de tus datos personales</b>
+        Tienes los siguientes derechos, de acuerdo con la Ley de Protección de Datos
+        Personales N° 25.326: solicitar y obtener información sobre tus datos personales
+        que tengamos almacenados; solicitar la corrección de tus datos personales
+        si son inexactos o incompletos; solicitar la eliminación de tus datos personales
+        de nuestros registros cuando no sean necesarios para los fines para los que
+        fueron recogidos, o cuando revoques tu consentimiento; mantener tus datos
+        actualizados. Para ejercer cualquiera de estos derechos, por favor contáctanos
+        a través de {ADMIN_EMAIL} o {WHATSAPP}. Atenderemos tu solicitud de
+        acuerdo con la normativa aplicable.
+      </p>
+      <p>
+        <b>7. Retención de datos</b>
+        Retendremos tu información personal solo por el tiempo necesario para cumplir
+        con los fines establecidos en esta Política de Privacidad, a menos que se
+        requiera un período de retención más largo o permitido por la ley.
+      </p>
+      <p>
+        <b>8. Cambios a esta política de privacidad</b>
+        Nos reservamos el derecho de modificar esta Política de Privacidad en cualquier
+        momento. Cualquier cambio será efectivo inmediatamente después de su publicación
+        en nuestro sitio web. Te recomendamos revisar periódicamente esta página
+        para estar informado sobre cómo protegemos tu información. La fecha de la
+        última actualización se indicará al inicio de esta política.
+      </p>
+      <p>
+        <b>9. Contacto</b>
+        Si tienes alguna pregunta o inquietud sobre esta política de privacidad o
+        sobre el tratamiento de tus datos personales, no dudes en contactarnos a
+        través de {ADMIN_EMAIL} o {WHATSAPP}.
+      </p>
+      <GoToHome />
+    </div>
+  </section>
+</Layout>

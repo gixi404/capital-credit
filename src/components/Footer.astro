@@ -1,0 +1,98 @@
+---
+import PhoneIcon from "../assets/svg/phone.svg";
+import EmailIcon from "../assets/svg/email.svg";
+import IgIcon from "../assets/svg/ig.svg";
+import ArrowIcon from "../assets/svg/arrow.svg";
+import { WHATSAPP_URL } from "../utils/const";
+const ADMIN_EMAIL = String(import.meta.env.ADMIN_EMAIL);
+---
+
+<footer class="bg-gray-900 py-12 text-gray-300/90">
+  <div class="container mx-auto px-4 max-w-[910px]">
+    <div class="flex justify-between items-start gap-6 mb-8 flex-wrap">
+      <div class="lg:col-span-2">
+        <a
+          href="/"
+          class="text-2xl uppercase font-bold text-[#3abc7e] mb-4 inline-block"
+          >capital credit</a
+        >
+        <div class="flex gap-y-4 flex-col justify-center items-start">
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noreferrer"
+            class="hover:brightness-125 transition-colors flex"
+          >
+            +54&nbsp;9&nbsp;1176294118&nbsp;&nbsp;<PhoneIcon />
+          </a>
+          <a
+            href="https://www.instagram.com/creditos.capital?igsh=Z2Vzbmx4bWN5c3N4"
+            target="_blank"
+            rel="noreferrer"
+            class="hover:brightness-125 transition-colors flex"
+          >
+            @creditos.capital&nbsp;&nbsp;<IgIcon />
+          </a>
+          {
+            ADMIN_EMAIL && (
+              <a
+                href={`mailto:${ADMIN_EMAIL}`}
+                class="hover:brightness-125 transition-colors flex"
+              >
+                {ADMIN_EMAIL}&nbsp;&nbsp;
+                <EmailIcon />
+              </a>
+            )
+          }
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-semibold mb-4 text-[#3abc7e] uppercase">
+          legal
+        </h3>
+        <ul class="space-y-4 [&>li>a]:hover:brightness-125 transition-colors">
+          <li>
+            <a
+              href="/aviso-legal"
+              rel="nofollow"
+              data-astro-prefetch="false"
+              class="flex gap-x-1"
+            >
+              Aviso Legal<ArrowIcon />
+            </a>
+          </li>
+          <li>
+            <a
+              href="/terminos-de-servicio"
+              rel="nofollow"
+              data-astro-prefetch="false"
+              class="flex gap-x-1"
+            >
+              Términos de Servicio<ArrowIcon />
+            </a>
+          </li>
+          <li>
+            <a
+              href="/politica-de-privacidad"
+              rel="nofollow"
+              data-astro-prefetch="false"
+              class="flex gap-x-1"
+            >
+              Política de Privacidad<ArrowIcon />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="pt-8 border-t text-sm border-gray-700 flex flex-col sm:flex-row w-full justify-between items-start sm:items-center"
+    >
+      <div class="flex flex-wrap w-full justify-start items-center">
+        <p>
+          &copy;&nbsp;{new Date().getFullYear()} CAPITAL CREDIT&nbsp;~&nbsp;
+        </p><span>Todos los derechos reservados</span>
+      </div>
+    </div>
+  </div>
+</footer>

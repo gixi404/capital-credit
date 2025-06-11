@@ -1,0 +1,24 @@
+ <svg
+        {Astro.props}
+        viewBox="0 0 100 120"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect x="10" y="10" width="80" height="100" rx="4" fill="#F9FAFB" stroke="black" stroke-width="1" />
+        <path d="M75 10 L90 25 L75 25 Z" fill="#E5E7EB" />
+        <text
+          x="50"
+          y="45"
+          text-anchor="middle"
+          class="text-2xl"
+          font-weight="semibold"
+          fill="#386641"
+          font-family="Arial, sans-serif"
+        >
+          $
+        </text>
+        <rect x="20" y="55" width="40" height="2" fill="#D1D5DB" />
+        <rect x="20" y="65" width="50" height="2" fill="#D1D5DB" />
+        <rect x="20" y="75" width="35" height="2" fill="#D1D5DB" />
+        <rect x="20" y="85" width="45" height="2" fill="#D1D5DB" />
+      </svg>
